@@ -85,6 +85,19 @@ public class Main {
                 case 5 ->
                 case 6 ->
                 case 7 ->
+                        System.out.print("Ingrese la placa del vehículo: ");
+                String placaBuscar = scanner.nextLine();
+                Auto autoEncontrado = buscarAuto(lstCarros, placaBuscar);
+                if (autoEncontrado != null) {
+                    System.out.print("Ingrese la distancia recorrida en km: ");
+                    double distancia = scanner.nextDouble();
+                    System.out.print("Ingrese el rendimiento del vehículo (km/litro): ");
+                    double rendimiento = scanner.nextDouble();
+                    double consumo = autoEncontrado.calcularConsumoCombustible(distancia, rendimiento);
+                    System.out.println("Combustible restante: " + autoEncontrado.combustibleRestante(consumo) + " litros.");
+                } else {
+                    System.out.println("Vehículo no encontrado.");
+                }
                 case 8 ->
                         System.out.println("Saliendo del sistema.");
 
